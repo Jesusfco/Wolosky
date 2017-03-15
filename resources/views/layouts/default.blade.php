@@ -37,7 +37,7 @@
                 <li><a href='{{ url('/noticias')}}' class='white-text thin'>       Noticias     </a></li>
                 <li><a href='{{ url('/equipo')}}' class='white-text thin'>       Equipo       </a></li>
                 <li><a href='{{ url('/contacto')}}' class='white-text thin'>     Contacto  </a></li>
-                <li><a href='{{ url('/admin')}}' class='white-text thin'><i class='Tiny material-icons'>perm_identity</i> </a></li>      
+                <li><a href='{{ url('/login')}}' class='white-text thin'><i class='Tiny material-icons'>perm_identity</i> </a></li>      
             </ul>
             <ul id='nav-mobile' class='side-nav'>        
                 <li><a href='{{ url('/')}}'>        Inicio       </a></li> 
@@ -45,7 +45,7 @@
                 <li><a href='{{ url('/noticias')}}'>       Noticias     </a></li>
                 <li><a href='{{ url('/equipo')}}'>       Equipo       </a></li>
                 <li><a href='{{ url('/contacto')}}'>     Contacto      </a></li>
-                <li><a href='{{ url('/admin')}}'>    Login<i class='tiny material-icons'>perm_identity</i> </a></li>      
+                <li><a href='{{ url('/login')}}'>    Login<i class='tiny material-icons'>perm_identity</i> </a></li>      
             </ul>      
             <a href='#' data-activates='nav-mobile' class='right button-collapse'><i class='material-icons white-text'>menu</i></a>    
         </div>
