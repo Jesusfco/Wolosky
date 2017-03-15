@@ -35,12 +35,14 @@
         @foreach($noticias as $n)        
             <div class="row">
                 <div class='col s12 m5 divImg'>                      
-                          <img class='activator responsive-img' src='images/noticias/{{ $n->IMAGEN }}'>                      
+                    <a href='noticias/{{ $n->id }}'>
+                        <img class='activator responsive-img' src='images/noticias/{{ $n->IMAGEN }}'>
+                    </a>
                 </div>
                 <div class='col s12 m7'>
                     <a href='noticias/{{ $n->id }}'><h5 class="tituloNoticia">{{ $n->TITULO }}</h5></a>
                     <p>{{ substr($n->RESUMEN, 0, 140)}}...</p>
-                           <a href='noticias/{{ $n->id }}'>Leer noticia...</a>
+                           <a href='noticias/{{ $n->id }}'   class='btn waves-effect waves-light red darken-4'>Leer más..</a>
                 </div>                                    
             </div>  
         <hr>

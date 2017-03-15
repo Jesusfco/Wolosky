@@ -31,11 +31,15 @@ class Noticias extends Controller
      */
     public function create()
     {
+         if(!Auth::user())
+            return redirect('/admin');
         return view('noticias/create');
     }
    
     public function store(Request $request)
     {
+         if(!Auth::user())
+            return redirect('/admin');
         $this->validate($request, [
            'titulo' => 'required',
             'resumen' => 'required',
@@ -80,6 +84,8 @@ class Noticias extends Controller
     
     public function edit($id)
     {
+        if(!Auth::user())
+            return redirect('/admin');
         $noticias = Noticia::find($id);          
         return view('noticias/edit')->with(['noticia'=> $noticias]);
     }

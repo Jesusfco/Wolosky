@@ -85,9 +85,15 @@
                     <li><a href="{{ url('noticias/create')}}">Crear Nota</a></li>
                     <li><a href="{{ url('admin/noticias/list')}}">Lista de Noticias</a></li>
                 </ul>
+                
+                <h4>Clientes</h4>
+                <ul>
+                    <li><a href="{{ url('/clientes/create')}}">Crear Nota</a></li>
+                    <li><a href="{{ url('/clientes')}}">Lista de Noticias</a></li>
+                </ul>
             </div>
             
-            <div class="col-xs-12 col-md-8">
+            <div class="col-xs-12 col-md-9">
                 
             @yield('content')
             </div>

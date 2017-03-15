@@ -28,7 +28,7 @@
         @foreach($noticias as $n)
             <div class='col s12 m6 l4'>
                 <div class='icon-block'>  
-                    <a href='noticias/".$row[0].".php' id=""> 
+                    <a href='noticias/{{ $n->id }}'> 
                         <img class='responsive-img' id="agrandamiento" src='images/noticias/{{ $n->IMAGEN}}'></a> 
                     <a href='noticias/'>
                     <h5 class='center tituloNoticia black-text'>"{{ $n->TITULO }}"</h5>
@@ -42,17 +42,7 @@
         @endforeach
     </div>
     @endif
-
-      <style>
-  	.galeria { font-family: 'Dancing Script', cursive;
-  		margin-bottom: -80px;
-  	}
-  	.galery { font-family: 'Dancing Script', cursive;
-
-  	}
-    </style>
-
-    
+          
     
     <div class="container row queEs blue darken-4 z-depth-4">
         <div class="col s12 m8" style="padding: 0px;">

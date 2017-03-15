@@ -14,6 +14,7 @@ class Noticia extends Model
      * @var array
      */
     protected $table = 'noticias';
+    
             
     protected $fillable = [
     'TITULO','RESUMEN', 'FECHA','TEXTO','YOUTUBE','IMAGEN',
@@ -23,6 +24,8 @@ class Noticia extends Model
     
     public function scopeSearch($query, $name) 
     {
+        $n = $query->where('TITULO', 'LIKE', "%$name%")->get();
+//        $m = $query->where('TEXTO', 'LIKE', "%$name%")->union($n)->get();
         return $query->where('TITULO', 'LIKE', "%$name%");
     }
     

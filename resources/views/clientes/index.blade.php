@@ -9,13 +9,13 @@
                     <div class="row">
                     
                     <div class="col-xs-12 col-sm-6">
-                    <h2>Noticias >> Lista</h2>
+                    <h2>Clientes >> Lista</h2>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         
                     <form method="GET" class="navbar-form">
                          <div class="input-group">
-                            <input name="name" class="form-control" placeholder="Buscar Noticia">
+                            <input name="name" class="form-control" placeholder="Buscar Cliente">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">Buscar</button>
                             </span>
@@ -30,38 +30,43 @@
                 <div class="panel-body">
                     <table class="table table-hover">                
                         <thead>
-                            <th>ID</th>
-                            <th>Titulo</th>
-                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Sexo</th>
+                            <th>Telefono</th>
+                            <th>Edad</th>
+                            <th>Nacimiento</th>
+                            <th>Tipo</th>
                             <th>Acciones</th>
                         </thead>
                         <tbody>
-                        @foreach($noticias as $n)
-                        
+                        @foreach($clientes as $n)
                         <tr>
-                            <td>{{ $n->id }}</td>
-                            <td>{{ $n->TITULO }}</td>
-                            <td>{{ $n->FECHA }}</td>
-                            <td>                                
-                                <a href="{{ url('/noticias/'.$n->id.'/edit') }}" class="btn btn-info btn-xs">Editar </a>
-                                <form method="POST" action="{{ route('noticias.destroy' , $n->id) }}">
+                            <td>{{ $n->nombre }}</td>
+                            <td>{{ $n->email }}</td>
+                            <td>{{ $n->sexo }}</td>
+                            <td>{{ $n->telefono }}</td>
+                            <td>{{ $n->edad }}</td>
+                            <td>{{ $n->nacimiento }}</td>
+                            <td>{{ $n->tipo }}</td>
+                            <td>
+                                <a href="{{ url('/clientes/'.$n->id.'/edit') }}" class="btn btn-info btn-xs">Editar </a>
+                                <form method="POST" action="{{ route('clientes.destroy' , $n->id) }}">
                                     <input value="DELETE" name="_method" type="hidden">
                                     {{ csrf_field() }}
                                     <input type="submit" value="Eliminar" class="btn btn-danger btn-xs"> </input>
                                 </form>
-                                <a href="{{ route('noticias.show', $n->id) }}" class="btn btn-success btn-xs" type="button">Ver</a>
+                                
                             </td>
                         </tr>
-                        
                         @endforeach
-                    </tbody>
-                    </table>
-                <center>
-                    {{ $noticias->links() }}
-                </center>
-                    </div>
+                        </tbody>
+                    </table>                
+                        
+                </div>
             </div>
 
             
 
 @endsection
+

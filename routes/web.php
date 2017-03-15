@@ -30,9 +30,10 @@ Route::get('/admin', 'HomeController@index');
 
 Route::get('/admin/noticias/list', 'Noticias@lista');
 
-Route::get('/admin/noticias/holamundo', 'Noticias@prueba');
+Route::get('/prueba', 'Noticias@prueba');
 
 Route::resource('/noticias', 'Noticias');
+Route::resource('/clientes', 'Clientes');
 
-Route::get('/admin/noticias/list', 'Noticias@lista');
+Route::get('/admin/noticias/list', 'Noticias@lista')->middleware('auth');
 
