@@ -5,6 +5,7 @@ namespace Wolosky\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Wolosky\Noticia;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -157,11 +158,18 @@ class Noticias extends Controller
     
      public function lista(Request $request)
     {
-        //
+
+
+
       $noticias = Noticia::search($request->name)
                 ->orderBy('id','desc')
                 ->paginate(15);
         return view('noticias/list')->with(['noticias'=> $noticias]);
+    }
+
+    public function prueba(Request $request)
+    {
+        if(!Auth::user()->name) return "No autenticado :("; else return Auth::user()->name;
     }
 
 }

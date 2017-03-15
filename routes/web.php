@@ -30,6 +30,8 @@ Route::get('/admin', 'HomeController@index');
 
 Route::get('/admin/noticias/list', 'Noticias@lista');
 
+Route::get('/admin/noticias/holamundo', 'Noticias@prueba');
+
 Route::resource('/noticias', 'Noticias');
 
 Route::get('/admin/noticias/list', 'Noticias@lista');
