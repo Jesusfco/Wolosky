@@ -1,0 +1,67 @@
+.tit { 
+	font-weight: 300;
+
+}
+.contenido { 
+	margin-top: 0;
+}  
+
+#hijoParallax { 
+	background-color: rgba(0,0,0, .3);
+}
+
+.icon-wolosky { 
+	font-size: 60px;  
+}
+.portada  { 
+	position: fixed;
+	z-index: -100;
+ }
+
+ .chico { 
+ 	display: none;}
+.grande { 
+	display: block;
+	margin:0 auto;
+}
+.s6 h5 { 
+	text-align: justify; }
+
+.valores ul { 
+	display: block;
+	margin: 0 auto; 
+	text-align: center;
+	list-style: none;
+	font-size: 35px;
+	color:white;
+	font-weight: 100;
+	padding-bottom: 30px;
+}
+
+.valores img { 
+	width: 30px;	
+}
+
+
+.display1 {     
+    display: none;
+}
+.display2 { 
+    display: none;
+}
+
+@media screen and (max-width: 600px) { 
+
+ 		.chico {  
+ 			display: block;
+ 		}
+
+ 		.grande { 
+ 			display: none; }
+                .display2 {     
+                    display: block;
+                }
+                .display1 { 
+                    display: none;
+                }
+}	
