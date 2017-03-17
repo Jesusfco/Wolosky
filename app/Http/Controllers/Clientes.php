@@ -5,6 +5,10 @@ namespace Wolosky\Http\Controllers;
 use Illuminate\Http\Request;
 use Wolosky\Cliente;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailable;
+
 
 
 class Clientes extends Controller
@@ -103,6 +107,9 @@ class Clientes extends Controller
      */
     public function edit($id)
     {
+        if(!Auth::user())
+            return redirect('/admin');
+        
         $cliente = Cliente::find($id);
         
         return view('clientes/edit')->with(['cliente' => $cliente]);
@@ -170,4 +177,82 @@ class Clientes extends Controller
         Cliente::destroy($id);
         return back()->with(['msj'=> true]);
     }
-}
+    
+    public function establecerNacimiento() { 
+        $clientes = Cliente::select('nacimiento','edad','id')->get();
+        $año = date("Y");
+        $x = 0;
+        foreach($clientes as $n) {
+            if ($n->nacimiento == NULL) {
+                $x++;
+                $nacimiento = $año - $n->edad;
+                $nacimiento = $nacimiento ."-01-01";
+
+                DB::table('clients')
+                    ->where('id', $n->id)
+                    ->update(['nacimiento' => $nacimiento]);
+            }
+        } 
+        
+        return back()->with(['fechas'=> $x]);
+    }
+    
+    public function verificarEdad() { 
+        $year = date("Y");
+        $month = date("m");
+        $day = date("d");
+        
+        $cliente = Cliente::select('nacimiento', 'edad', 'id', 'nombre')->get();
+        
+        foreach($cliente as $n) { 
+            
+            $clienteAño = date("Y", strtotime($n->nacimiento));                  
+            $clienteEdad = $year - $clienteAño;                        
+            $clienteMes = date("m", strtotime($n->nacimiento));          
+            $mes = $month - $clienteMes;
+            
+            if($mes < 0)
+                $clienteEdad--;                       
+                            
+            else if($mes == 0) { 
+                $diaCliente = date("d", strtotime($n->nacimiento));                  
+                $diaCliente = $day - $diaCliente;
+                if($diaCliente <= 0)
+                {                
+                        $clienteEdad--;
+                }
+            }
+            
+            DB::table('clients')
+                    ->where('id', $n->id)
+                    ->update(['edad' => $clienteEdad]);
+        }
+        return back()->with(['verificado'=> true]);
+    }
+    
+    public function prueba() { 
+         DB::table('prueba')->insert([
+            ['numero' => '1']
+    ]);
+        
+    }
+    
+    public function mail(Request $request)
+    {
+        $_message = $request->mensaje;
+        $_email = $request->correo;
+        $_name = $request->nombre;
+        echo $_email;
+        $_toSend = "Nombre: " . $_name . "\nE-mail: " . $_email . "\n\nMensaje:\n" . $_message;
+             $to = "jfcr@live.com";
+        $subject = "Nuevo contacto: " . $_name . " - " . $_email;
+        $headers = "From: $_email" . "\r\n" .
+            "CC: " . $_email;
+
+        if (mail($to, $subject, $_toSend, $headers)) {
+            return back()->with('msj', 'La noticia ha sido creada con exito');
+        } else { 
+            return back()->with('error', 'Los datos no de guardaron');
+        }
+    }
+}//End from controller

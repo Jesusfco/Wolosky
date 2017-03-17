@@ -15,7 +15,7 @@
             <h1 class="portada1" align="center" style="margin-top: 0px;" >Academia de Gimnasia Wolosky</h1>        
             <h3 id="fade" class="thin slogan" align="center">Una academia de gimnasia con mas de 19 años de experiencia</h3>   
             <center>
-                <a href="quienes.php" id=""  class="btn-large waves-effect waves-light blue darken-4">Conocenos mas...</a>
+                <a href="quienes" id=""  class="btn-large waves-effect waves-light blue darken-4">Conocenos mas...</a>
             </center>             
         </div>
     
@@ -52,7 +52,7 @@
             <div style="padding: 15px">
                 <h4 style="font-family: 'Oswald', sans-serif">¿Qué es la Gimnasia?</h4>
                 <p>Consiste en la realización de una composición coreográfica, combinando de forma simultánea y a una alta velocidad los movimientos corporales.</p>
-                 <a href="gimnasia.php" id=""  class="btn-large waves-effect waves-light red darken-4">Leer más..</a>
+                 <a href="gimnasia" id=""  class="btn-large waves-effect waves-light red darken-4">Leer más..</a>
             </div>
         </div>
   </div>
@@ -138,7 +138,7 @@
                     <p>16:00 hrs - 20:00 hrs</p>
                     <h5>Sábado</h5>
                     <p>9:00 hrs - 13:00 hrs</p>
-                    <a href="contacto.php" id=""  class="btn-large waves-effect waves-light red darken-4">Contactanos..</a>
+                    <a href="contacto" id=""  class="btn-large waves-effect waves-light red darken-4">Contactanos..</a>
                 </center>
             </div>
         </div>

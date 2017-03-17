@@ -1,14 +1,12 @@
 @extends('layouts.app')
 
-@section('content')
-    
-    
+@section('content')               
 
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
                     
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-xs-12 col-sm-6">                 
                     <h2>Clientes >> Lista</h2>
                     </div>
                     <div class="col-xs-12 col-sm-6">
@@ -62,7 +60,9 @@
                         @endforeach
                         </tbody>
                     </table>                
-                        
+                    <center>
+                        {{ $clientes->links() }}
+                    </center> 
                 </div>
             </div>
 

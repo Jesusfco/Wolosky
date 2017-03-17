@@ -21,19 +21,26 @@ Route::get('/equipo', function () {
 Route::get('/contacto', function () {
     return view('home/contacto');
 });
+Route::get('/suscribete', function () {
+    return view('home/subscripcion');
+});
+
+Route::post('/mensaje', 'Clientes@mail');
 
 //Route::resource('/noticias', 'Noticias');
 
 Auth::routes();
+Route::resource('/noticias', 'Noticias');
+Route::get('/admin/noticias/list', 'Noticias@lista')->middleware('auth');
+
+Route::resource('/clientes', 'Clientes');
+Route::get('/nacimiento', 'Clientes@establecerNacimiento');
+Route::get('/edad', 'Clientes@verificarEdad');
+Route::get('/prueba', 'Clientes@prueba');
 
 Route::get('/admin', 'HomeController@index');
-
 Route::get('/admin/noticias/list', 'Noticias@lista');
 
-Route::get('/prueba', 'Noticias@prueba');
 
-Route::resource('/noticias', 'Noticias');
-Route::resource('/clientes', 'Clientes');
 
-Route::get('/admin/noticias/list', 'Noticias@lista')->middleware('auth');
 

@@ -114,7 +114,9 @@ max-width: 1200px;
 
 @media screen and (max-width: 600px) { 
 
-    
+    .notaPrincipal-titulo h3 {     
+        font-size: 25px;       
+    }
   
   .content { 
     width: 100%;
