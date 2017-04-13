@@ -111,11 +111,12 @@ class Noticias extends Controller
         //Si se modigica la imagen
         if($request->file('imagen')) { 
             $img = $request->file('imagen');
-            $file_route = time().'_'. $img->getClientOriginalName();             
+            $file_route = time().'_'. $img->getClientOriginalName();                         
             Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
             Storage::disk('imgNoticias')->delete($noticias->IMAGEN);
-            
             $noticias->IMAGEN = $file_route;
+            
+            
             
         } 
         
@@ -123,18 +124,17 @@ class Noticias extends Controller
         $texto = $request->texto;
         $texto = rawurlencode($texto);
         $texto = rawurldecode(str_replace("%0D%0A","<br>",$texto));        
-//        echo nl2br($_POST['texto']);      Este codigo podria ser un resumen dle codigo de arriba
+
 
        
         $noticias->TITULO = $request->titulo;
         $noticias->RESUMEN = $request->resumen;
         $noticias->FECHA= $request->fecha;
         $noticias->TEXTO = $texto;
-        $noticias->YOUTUBE = $request->youtube;        
-        $noticias->id=$id;
+        $noticias->YOUTUBE = $request->youtube;                
                 
         if($noticias->save()) { 
-            return back()->with('msj', 'La noticia ha sido creada con exito');
+            return back()->with('msj', 'La noticia ha sido modificada con exito');
         } else { 
             return back()->with('error', 'Los datos no de guardaron');
         }                            
@@ -157,7 +157,7 @@ class Noticias extends Controller
        public function home()
     {
         //
-        $noticias = Noticia::orderBy('id','desc')->limit(3)->get();
+        $noticias = Noticia::orderBy('FECHA','desc')->limit(3)->get();
         return view('home/home')->with(['noticias'=> $noticias]);
     }     
     

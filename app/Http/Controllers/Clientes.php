@@ -244,7 +244,7 @@ class Clientes extends Controller
         $_name = $request->nombre;
         echo $_email;
         $_toSend = "Nombre: " . $_name . "\nE-mail: " . $_email . "\n\nMensaje:\n" . $_message;
-             $to = "jfcr@live.com";
+             $to = "gimnasiawolosky@gmail.com";
         $subject = "Nuevo contacto: " . $_name . " - " . $_email;
         $headers = "From: $_email" . "\r\n" .
             "CC: " . $_email;

@@ -8,53 +8,68 @@
     @endsection
     
 @section('content') 
-     <div class="parallax-container">    
-           
-    <div class="parallax"><img src="images/quienes/portada.jpg" alt="Unsplashed background img 1"  style="margin-top:0px;"></div>
-  </div> 
+                  
+    <div id="fondoquienes">
+        <img src="images/quienes/portada.jpg">
+    </div>
+         
   
-    <div class=" contenido">
-        
-        <div class="container">                             
-            <h2  class="light" align="center">¿Quienes somos?</h2>   
-            <h5 align="center" class="thin">Somos una Academia de Gimnasia formalmente constituidos</h5>        
+    
+<div id="contenedorPrincipal">    
+    
+    <h2  class="light" align="center">¿Quienes somos?</h2> 
+    <div class="container" style="max-width: 1000px">  
+            <br><br><br>
+            <div class="row" id="profesora">
+                <div class="col s12 l6">
+                    <center>
+                        <img src="{{url('images/quienes/rebe.jpg')}}" class="circle responsive-img">
+                    </center>
+                </div>
+                <div class="col s12 l6">
+                    <br>
+                    <h3 class="oswaldo">Lic.Rebeca Wolosky Álvarez</h3>
+                    <h5 class="light text-lighten-3 ">"Hola a todos, soy la fundadora de la Academia de Gimnasia Wolosky con mas de 30 años de sus inicios"</h5>
+                </div>
+            </div>
+              
+            <h3 align="center" class="">Somos una Academia de Gimnasia formalmente constituidos</h3>        
             <p align="center">Estamos totalmente conscientes que el logro de cada atleta está basado en un trabajo conjunto y coordinado entre: gimnasta, padres, entrenadores y club.</p>                
-        </div>  
+          
         
-        <div class="container white">
+        <div class="hide-on-small-and-down ">
             <h3 class="center tit">Mision</h3>
-            <div class="row valign-wrapper">
-                <div class="col s12 m6 chico">         
-                    <center><img src="images/quienes/mision.jpg" class="center responsive-img"></center>
-                </div>
-                
-                <div class="col s12 m6 valign hide-on-small-only">
+            <div class="row valign-wrapper">                
+                <div class="col s12 m6 valign ">
                     <p class="baja" align="center">  "Lograr que todos nuestros alumnos sean triunfadores, brindándoles seguridad para vencer los retos que enfrenten día con día; fortaleciendo su autoestima para que en su edad adulta sean hombres y mujeres de carácter firme, deportistas sanos, con principios cimentados y bases sólidas que los alejen de cualquier desviación."</p>
-                </div>
-                <div class="col s12 m6  hide-on-med-and-up">
-                    <p class="baja" align="center">  "Lograr que todos nuestros alumnos sean triunfadores, brindándoles seguridad para vencer los retos que enfrenten día con día; fortaleciendo su autoestima para que en su edad adulta sean hombres y mujeres de carácter firme, deportistas sanos, con principios cimentados y bases sólidas que los alejen de cualquier desviación."</p>
-                </div>
-     
+                </div>                     
                 <div class="col s12 m6 grande">         
-                <center><img src="images/quienes/mision.jpg" class="center responsive-img materialboxed centrado"></center>
+                    <center><img src="images/quienes/mision.jpg" class="center responsive-img materialboxed centrado"></center>
                 </div>      
-
             </div>
 
-        <h3 align="center" class="tit">Vision</h3>
+            <h3 align="center" class="tit">Vision</h3>
 
-        <div class="row valign-wrapper ">
-            <div class="col s12 m6 center"> 
-                <img src="images/quienes/vision.jpg" class="responsive-img materialboxed centrado">
+            <div class="row valign-wrapper ">
+                <div class="col s12 m6 center"> 
+                    <img src="images/quienes/vision.jpg" class="responsive-img materialboxed centrado">
+                </div>
+                <div class="col s12 m6 valign">
+                    <p align="center">  "Lograr que todos nuestros alumnos sean triunfadores, brindándoles seguridad para vencer los retos que enfrenten día con día, fortaleciendo su autoestima para que en su edad adulta sean hombres y mujeres de carácter firme, deportistas sanos, con principios cimentados y bases sólidas que los alejen de cualquier desviación."</p>
+                </div>                
             </div>
-            <div class="col s12 m6 valign display1 hide-on-small-only">
-                <p align="center">  "Lograr que todos nuestros alumnos sean triunfadores, brindándoles seguridad para vencer los retos que enfrenten día con día, fortaleciendo su autoestima para que en su edad adulta sean hombres y mujeres de carácter firme, deportistas sanos, con principios cimentados y bases sólidas que los alejen de cualquier desviación."</p>
-            </div>   
-            <div class="col s12 m6 display2 hide-on-med-and-up">
-                <p align="center">  "Lograr que todos nuestros alumnos sean triunfadores, brindándoles seguridad para vencer los retos que enfrenten día con día, fortaleciendo su autoestima para que en su edad adulta sean hombres y mujeres de carácter firme, deportistas sanos, con principios cimentados y bases sólidas que los alejen de cualquier desviación."</p>
-            </div> 
         </div>
-     
+            
+        <div class="hide-on-med-and-up ">
+            <h3 class="center tit">Mision</h3>                                                                                                              
+            <center><img src="images/quienes/mision.jpg" class="center responsive-img materialboxed centrado"></center>
+            <p class="baja" align="center">  "Lograr que todos nuestros alumnos sean triunfadores, brindándoles seguridad para vencer los retos que enfrenten día con día; fortaleciendo su autoestima para que en su edad adulta sean hombres y mujeres de carácter firme, deportistas sanos, con principios cimentados y bases sólidas que los alejen de cualquier desviación."</p>
+                            
+            <h3 align="center" class="tit">Vision</h3>                            
+            <img src="images/quienes/vision.jpg" class="responsive-img materialboxed centrado">                                
+            <p align="center">  "Lograr que todos nuestros alumnos sean triunfadores, brindándoles seguridad para vencer los retos que enfrenten día con día, fortaleciendo su autoestima para que en su edad adulta sean hombres y mujeres de carácter firme, deportistas sanos, con principios cimentados y bases sólidas que los alejen de cualquier desviación."</p>                
+            
+        </div>    
   
         <h3 class="center tit">Valores</h3>
 
@@ -106,21 +121,16 @@
             </div>                
         </div>
      </div> 
-      
+    <br>
+    </div>
+</div>      
 
      
 
 
 @endsection
 
-@section('script')    
-  <script src="js/quienes.js"></script>  
-  <script> 
-    $(document).ready(function(){
-        $('.materialboxed').materialbox();
-        $('.collapsible').collapsible();
-  
-    });
-  </script>  
+@section('scripts')    
+  <script src="js/quienes.js"></script>   
 @endsection
 

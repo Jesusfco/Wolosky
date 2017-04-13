@@ -1,3 +1,28 @@
+#fondoquienes { 
+    display: block;
+    z-index: -10;
+    width:  100%;
+    position: fixed;
+    
+        
+}
+#fondoquienes img { 
+    width: 100%;
+}
+
+
+#contenedorPrincipal { 
+    width: 100%;
+    display: block;
+    margin-bottom: 0px;
+    padding-bottom: 0;
+    background-color: white;
+}
+
+#profesora img { 
+    
+}
+
 .tit { 
 	font-weight: 300;
 
@@ -6,17 +31,12 @@
 	margin-top: 0;
 }  
 
-#hijoParallax { 
-	background-color: rgba(0,0,0, .3);
-}
+
 
 .icon-wolosky { 
 	font-size: 60px;  
 }
-.portada  { 
-	position: fixed;
-	z-index: -100;
- }
+
 
  .chico { 
  	display: none;}

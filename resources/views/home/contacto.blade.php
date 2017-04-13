@@ -57,5 +57,5 @@
 @endsection
 
 @section('scripts')
-<script src="js/subscripcion.js">
+<!--<script src="js/subscripcion.js">-->
 @endsection
