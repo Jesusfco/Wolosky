@@ -1,5 +1,8 @@
 @extends('layouts.app')
+@section('stylesheets')
+    <link href="{{url('sweet/sweetalert.css')}}" rel="stylesheet">
 
+@endsection
 @section('content')            
 
             <div class="panel panel-default" id="principal">
@@ -25,8 +28,8 @@
                     
                 </div>
                 
-                <div class="panel-body">
-                    <table class="table table-hover">                
+                <div class=" responsive-table">
+                    <table class="table table-hover table-condensed ">
                         <thead>
                             <th>ID</th>
                             <th>Titulo</th>
@@ -36,17 +39,13 @@
                         <tbody>
                         @foreach($noticias as $n)
                         
-                        <tr>
+                        <tr id="noticia{{$n->id}}">
                             <td>{{ $n->id }}</td>
                             <td>{{ $n->TITULO }}</td>
                             <td>{{ $n->FECHA }}</td>
                             <td>                                
-                                <a href="{{ url('/noticias/'.$n->id.'/edit') }}" class="btn btn-info btn-xs">Editar </a>
-                                <form method="POST" action="{{ route('noticias.destroy' , $n->id) }}">
-                                    <input value="DELETE" name="_method" type="hidden">
-                                    {{ csrf_field() }}
-                                    <input type="submit" value="Eliminar" class="btn btn-danger btn-xs"> </input>
-                                </form>
+                                <a href="{{ url('/noticias/'.$n->id.'/edit') }}" class="btn btn-primary btn-xs">Editar </a>
+                                <a  onclick="eliminar({{ $n->id }}, '{{ $n->TITULO }}')" class="btn btn-danger btn-xs"> Eliminar</a>
                                 <a href="{{ route('noticias.show', $n->id) }}" class="btn btn-success btn-xs" type="button">Ver</a>
                             </td>
                         </tr>
@@ -54,12 +53,18 @@
                         @endforeach
                     </tbody>
                     </table>
+                </div>
                 <center>
                     {{ $noticias->links() }}
                 </center>
-                    </div>
+
             </div>
 
             
 
+@endsection
+
+@section('scripts')
+    <script src="{{url('sweet/sweetalert.min.js')}}"></script>
+    <script src="{{url('js/Aplication/noticiasList.js')}}"></script>
 @endsection

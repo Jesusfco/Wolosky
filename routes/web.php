@@ -32,10 +32,12 @@ Route::post('/mensaje', 'Clientes@mail');
 Auth::routes();
 Route::resource('/noticias', 'Noticias');
 Route::get('/admin/noticias/list', 'Noticias@lista')->middleware('auth');
+Route::get('admin/noticias/destroy', 'Noticias@destroy');
 
 Route::resource('/clientes', 'Clientes');
 Route::get('/nacimiento', 'Clientes@establecerNacimiento');
 Route::get('/edad', 'Clientes@verificarEdad');
+Route::get('/clientesDestroy', 'Clientes@destroy');
 Route::get('/prueba', 'Clientes@prueba');
 
 Route::get('/admin', 'HomeController@index');

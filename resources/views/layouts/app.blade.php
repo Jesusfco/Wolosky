@@ -13,8 +13,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="{{url('/css/aplicationDefault.css')}}" rel="stylesheet">
-
-@yield('stylesheets')
+    @yield('stylesheets')
 
 <!-- Scripts -->
     <script>
@@ -25,7 +24,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0">
+    <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0">
         <div class="container">
             <div class="navbar-header">
 
@@ -70,7 +69,7 @@
         </div>
     </nav>
 
-
+    <br><br>
     @if(Auth::guest())
         <br><br>
         @yield('content')
@@ -78,7 +77,7 @@
 
         @include('layouts.menuAdmin')
 
-
+    <br>
         @yield('content')
 
 
@@ -89,6 +88,6 @@
 <!-- Scripts -->
 <script src="{{ url('/js/app.js') }}"></script>
 <script src="{{ url('/js/Aplication/aplicationDefault.js') }}"></script>
-@yield('javascript')
+@yield('scripts')
 </body>
 </html>
