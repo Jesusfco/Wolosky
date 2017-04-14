@@ -23,7 +23,7 @@
 
 
         <div class="panel-body">
-            <form role="form" method="POST" action="{{ route('noticias.update', $noticia->id)}}" enctype="multipart/form-data">                              
+            <form role="form" method="POST" action="{{ url('admin/noticias', $noticia->id )}}" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Titulo</label>
                   <input type="text" name="titulo" class="form-control" value='{{ $noticia->TITULO }}' placeholder="Titulo de la noticia" required>
@@ -63,7 +63,7 @@
 
 
                 <button type="submit" class="btn btn-default">Editar Nota</button>
-                 {{ method_field('PUT')}}
+
                 {{ csrf_field() }}
               </form>
 

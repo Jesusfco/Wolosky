@@ -34,7 +34,11 @@ Route::post('/mensaje', 'VisitorsController@mail');
 Auth::routes();
 
 Route::get('admin/noticias/list', 'Noticias@index');
+Route::get('admin/noticias/create', 'Noticias@create');
+Route::post('admin/noticias/create', 'Noticias@store');
 Route::get('admin/noticias/destroy', 'Noticias@destroy');
+Route::get('noticias/{id}/edit', 'Noticias@edit');
+Route::post('admin/noticias/{id}', 'Noticias@update');
 
 Route::resource('/clientes', 'Clientes');
 Route::get('/nacimiento', 'Clientes@establecerNacimiento');
@@ -43,7 +47,7 @@ Route::get('/clientesDestroy', 'Clientes@destroy');
 Route::get('/prueba', 'Clientes@prueba');
 
 Route::get('/admin', 'HomeController@index');
-Route::get('/admin/noticias/list', 'Noticias@lista');
+
 
 
 

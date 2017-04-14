@@ -22,6 +22,10 @@
 ::-webkit-scrollbar-corner {
       background-color: black;
 }
+
+#adminLevel {
+    text-align: right;
+}
    
 
 #panelMargen { 

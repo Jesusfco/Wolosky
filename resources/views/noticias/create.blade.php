@@ -17,7 +17,7 @@
                       </div>
                 @endif
                 <div class="panel-body">
-                    <form role="form" method="POST" action="{{ url('/noticias')}}" enctype="multipart/form-data">
+                    <form role="form" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                           <label for="exampleInputEmail1">Titulo</label>

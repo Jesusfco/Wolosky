@@ -36,7 +36,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/admin') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     <span class='icon-wolosky' style="font-size:50px; color: white; display: block; margin-top: -12px"></span>
                 </a>
             </div>

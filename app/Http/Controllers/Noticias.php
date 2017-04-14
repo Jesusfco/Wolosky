@@ -39,15 +39,12 @@ class Noticias extends Controller
 
     public function create()
     {
-         if(!Auth::user())
-            return redirect('/admin');
+
         return view('noticias/create');
     }
    
     public function store(Request $request)
     {
-         if(!Auth::user())
-            return redirect('/admin');
         $this->validate($request, [
            'titulo' => 'required',
             'resumen' => 'required',
@@ -120,43 +117,43 @@ class Noticias extends Controller
             'texto' => 'required',
             'youtube' => 'required',
         ]);
-       
+
         $noticias = Noticia::find($id);
-         
+
         //Si se modigica la imagen
-        if($request->file('imagen')) { 
+        if($request->file('imagen')) {
             $img = $request->file('imagen');
             $file_route = time().'_'. $img->getClientOriginalName();
 
             Image::make($request->file('imagen'))
-                    ->fit(600,400)
-            ->save("images/noticias/" . $file_route);
+                ->fit(600,400)
+                ->save("images/noticias/" . $file_route);
 //                ->save("../public_html/images/noticias/" . $file_route);
 
             //Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
             Storage::disk('imgNoticias')->delete($noticias->IMAGEN);
             $noticias->IMAGEN = $file_route;
-            
-        } 
-        
+
+        }
+
         //Detectamos saltos de linea y automatizamos <br>
         $texto = $request->texto;
         $texto = rawurlencode($texto);
-        $texto = rawurldecode(str_replace("%0D%0A","<br>",$texto));        
+        $texto = rawurldecode(str_replace("%0D%0A","<br>",$texto));
 
 
-       
+
         $noticias->TITULO = $request->titulo;
         $noticias->RESUMEN = $request->resumen;
         $noticias->FECHA= $request->fecha;
         $noticias->TEXTO = $texto;
-        $noticias->YOUTUBE = $request->youtube;                
-                
-        if($noticias->save()) { 
+        $noticias->YOUTUBE = $request->youtube;
+
+        if($noticias->save()) {
             return back()->with('msj', 'La noticia ha sido modificada con exito');
-        } else { 
+        } else {
             return back()->with('error', 'Los datos no de guardaron');
-        }                            
+        }
     }
 
     /**

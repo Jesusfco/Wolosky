@@ -1,27 +1,49 @@
 <div id="panel">
     <br>
     <div id="panelMargen">
-        <h4><span class="glyphicon glyphicon-user" aria-hidden="true" id="chess"></span>
-            Administrador
-        </h4>
-
+        <br>
         <div id="userKey"><h2>{{ substr(Auth::user()->name,0,1)}}</h2> </div>
         <h3>{{ substr(Auth::user()->name,0,9) }}.</h3>
+
+        <!--<h4 id="adminLevel">
+            Administrador
+            <span class="glyphicon glyphicon-user" aria-hidden="true" id="chess"></span>
+        </h4>-->
         <hr>
 
 
-        <h4>Noticias</h4>
+        <h4>
+            <span class="glyphicon glyphicon-text-background" aria-hidden="true" id="chess"></span>
+            Noticias
+        </h4>
         <ul>
-            <li><a href="{{ url('noticias/create')}}">Crear Nota</a></li>
-            <li><a href="{{ url('admin/noticias/list')}}">Lista de Noticias</a></li>
+            <a href="{{ url('admin/noticias/create')}}">
+                <li>Crear Nota</li>
+            </a>
+            <a href="{{ url('admin/noticias/list')}}">
+                <li>Lista de Noticias</li>
+            </a>
         </ul>
 
-        <h4>Clientes</h4>
+        <hr>
+
+        <h4>
+            <span class="glyphicon glyphicon-eur" id="chess"></span>
+            Clientes
+        </h4>
         <ul>
-            <li><a href="{{ url('/clientes/create')}}">Crear cliente</a></li>
-            <li><a href="{{ url('/clientes')}}">Lista de clientes</a></li>
-            <li><a href="{{ url('/nacimiento')}}">Establecer Nacimiento</a></li>
-            <li><a href="{{ url('/edad')}}">Verificar Edad</a></li>
+            <a href="{{ url('/clientes/create')}}">
+                <li>Crear cliente</li>
+            </a>
+            <a href="{{ url('/clientes')}}">
+                <li>Lista de clientes</li>
+            </a>
+            <a href="{{ url('/nacimiento')}}">
+                <li>Establecer Nacimiento</li>
+            </a>
+            <a href="{{ url('/edad')}}">
+                <li>Verificar Edad</li>
+            </a>
         </ul>
         <hr>
 

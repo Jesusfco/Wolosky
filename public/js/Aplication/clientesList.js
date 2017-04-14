@@ -22,7 +22,7 @@ function eliminar(n, name) {
                     id: n
                 },
                 success: function (data) {
-                alert(data);
+                //alert(data);
                     setTimeout(function () {
                         swal({
                             title: "Cliente Eliminado",

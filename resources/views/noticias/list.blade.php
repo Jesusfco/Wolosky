@@ -45,7 +45,7 @@
                             <td>                                
                                 <a href="{{ url('/noticias/'.$n->id.'/edit') }}" class="btn btn-primary btn-xs">Editar </a>
                                 <a  onclick="eliminar({{ $n->id }}, '{{ $n->TITULO }}')" class="btn btn-danger btn-xs"> Eliminar</a>
-                                <a href="{{ route('noticias.show', $n->id) }}" class="btn btn-success btn-xs" type="button">Ver</a>
+                                <a href="{{ url('noticias', $n->id) }}" class="btn btn-success btn-xs" type="button">Ver</a>
                             </td>
                         </tr>
                         
