@@ -22,20 +22,21 @@ class Noticias extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {        
-        $noticias = DB::table('noticias')
-                ->orderBy('FECHA','desc')
-                ->paginate(9)
-                ->withPath('noticias');
-        return view('home/noticias')->with(['noticias'=> $noticias]);               
-    }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function index(Request $request)
+    {
+        $noticias = Noticia::search($request->name)
+            ->orderBy('id','desc')
+            ->paginate(15);
+        return view('noticias/list')->with(['noticias'=> $noticias]);
+    }
+
     public function create()
     {
          if(!Auth::user())
@@ -172,29 +173,10 @@ class Noticias extends Controller
         Noticia::destroy($id);
         return 'true';
     }
-    
-       public function home()
-    {
-        //
-        $noticias = Noticia::orderBy('FECHA','desc')->limit(3)->get();
-        return view('home/home')->with(['noticias'=> $noticias]);
-    }     
+
     
     
-     public function lista(Request $request)
-    {
 
 
-
-      $noticias = Noticia::search($request->name)
-                ->orderBy('id','desc')
-                ->paginate(15);
-        return view('noticias/list')->with(['noticias'=> $noticias]);
-    }
-
-    public function prueba(Request $request)
-    {
-        if(!Auth::user()->name) return "No autenticado :("; else return Auth::user()->name;
-    }
 
 }

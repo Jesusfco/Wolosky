@@ -1,13 +1,14 @@
 <div id="panel">
     <br>
     <div id="panelMargen">
+        <h4><span class="glyphicon glyphicon-user" aria-hidden="true" id="chess"></span>
+            Administrador
+        </h4>
+
         <div id="userKey"><h2>{{ substr(Auth::user()->name,0,1)}}</h2> </div>
         <h3>{{ substr(Auth::user()->name,0,9) }}.</h3>
         <hr>
 
-        <h4><span class="glyphicon glyphicon-user" aria-hidden="true" id="chess"></span>
-            Administrador
-        </h4>
 
         <h4>Noticias</h4>
         <ul>

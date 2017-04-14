@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="{{url('images/icon.ico')}}"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
 <!--<meta name="csrf-token" content="{{ csrf_token() }}">-->
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Wolosky Panel</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="{{url('/css/aplicationDefault.css')}}" rel="stylesheet">
-    @yield('stylesheets')
+    <link rel="stylesheet" type="text/css" href="{{ url('fonts2/style.css')}}">
+    @yield('styles')
 
 <!-- Scripts -->
     <script>
@@ -35,7 +37,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/admin') }}">
-                    Wolosky Panel
+                    <span class='icon-wolosky' style="font-size:50px; color: white; display: block; margin-top: -12px"></span>
                 </a>
             </div>
 

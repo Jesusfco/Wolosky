@@ -1,7 +1,6 @@
 @extends('layouts.app')
-@section('stylesheets')
+@section('styles')
     <link href="{{url('sweet/sweetalert.css')}}" rel="stylesheet">
-
 @endsection
 @section('content')            
 

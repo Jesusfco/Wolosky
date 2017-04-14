@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'Noticias@home');
+Route::get('/', 'VisitorsController@index');
+Route::get('/noticias', 'VisitorsController@noticias');
+Route::get('/noticias/{id}', 'VisitorsController@articulo');
 Route::get('/quienes', function () {
     return view('home/quienes');
 });
@@ -25,13 +27,13 @@ Route::get('/suscribete', function () {
     return view('home/subscripcion');
 });
 
-Route::post('/mensaje', 'Clientes@mail');
+Route::post('/mensaje', 'VisitorsController@mail');
 
-//Route::resource('/noticias', 'Noticias');
+
 
 Auth::routes();
-Route::resource('/noticias', 'Noticias');
-Route::get('/admin/noticias/list', 'Noticias@lista')->middleware('auth');
+
+Route::get('admin/noticias/list', 'Noticias@index');
 Route::get('admin/noticias/destroy', 'Noticias@destroy');
 
 Route::resource('/clientes', 'Clientes');

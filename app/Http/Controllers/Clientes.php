@@ -236,23 +236,5 @@ class Clientes extends Controller
     ]);
         
     }
-    
-    public function mail(Request $request)
-    {
-        $_message = $request->mensaje;
-        $_email = $request->correo;
-        $_name = $request->nombre;
-        echo $_email;
-        $_toSend = "Nombre: " . $_name . "\nE-mail: " . $_email . "\n\nMensaje:\n" . $_message;
-             $to = "gimnasiawolosky@gmail.com";
-        $subject = "Nuevo contacto: " . $_name . " - " . $_email;
-        $headers = "From: $_email" . "\r\n" .
-            "CC: " . $_email;
 
-        if (mail($to, $subject, $_toSend, $headers)) {
-            return back()->with('msj', 'La noticia ha sido creada con exito');
-        } else { 
-            return back()->with('error', 'Los datos no de guardaron');
-        }
-    }
 }//End from controller
