@@ -52,6 +52,7 @@ return [
         'imgNoticias' => [
             'driver' => 'local',
             'root' => public_path('images/noticias'),
+            //'root' => public_path('../../public_html/images/noticias'),
             
         ],
 

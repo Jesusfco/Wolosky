@@ -59,7 +59,7 @@ class Noticias extends Controller
             ->resize(600,400)
             ->save("images/noticias/" . $file_route);
 
-        //Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
+        Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
         
         //Detectamos saltos de linea y automatizamos <br>
         $texto = $request->texto;

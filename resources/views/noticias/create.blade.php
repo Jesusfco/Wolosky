@@ -23,15 +23,15 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                           <label for="exampleInputEmail1">Titulo</label>
-                          <input type="text" name="titulo" class="form-control"  placeholder="Titulo de la noticia">
+                          <input type="text" name="titulo" class="form-control"  placeholder="Titulo de la noticia" required>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Resumen</label>
-                          <input type="text" name="resumen" class="form-control"  placeholder="Escribe brevemente de que se trara la noticia">
+                          <input type="text" name="resumen" class="form-control"  placeholder="Escribe brevemente de que se trara la noticia" required>
                         </div>
                         <div class="form-group">
                           <label>Imagen</label>
-                          <input type="file" name="imagen" accept="image/x-png,image/gif,image/jpeg">
+                          <input type="file" name="imagen" accept="image/x-png,image/gif,image/jpeg" required>
                           <p class="help-block">Cargue una fotografía de la noticia</p>
                         </div>
                         
@@ -39,17 +39,17 @@
                             
                          <div class="form-group">
                           <label>Fecha</label>
-                          <input type="date" name="fecha" class="form-control" placeholder="Escribe brevemente de que se trara la noticia">
+                          <input type="date" name="fecha" class="form-control" required>
                         </div>
                         
                         </div></div>
                                 
                         <label>Redacta tu noticia</label>
-                        <textarea class="form-control" name="texto" rows="3"></textarea>
+                        <textarea class="form-control" name="texto" rows="3" required></textarea>
                         
                         <div class="form-group">
                           <label>Iframe de Youtube</label>
-                          <input type="text" name="youtube" class="form-control" name="YOUTUBE" value='<iframe width="560" height="315" src="https://www.youtube.com/embed/cwObZ_1Drvc" frameborder="0" allowfullscreen></iframe>'>
+                          <input type="text" name="youtube" class="form-control" name="YOUTUBE" value='<iframe width="560" height="315" src="https://www.youtube.com/embed/cwObZ_1Drvc" frameborder="0" allowfullscreen></iframe>' required>
                         </div>
                         
                         
