@@ -2,7 +2,7 @@
 
 @section('content')            
 
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="principal">
                 <div class="panel-heading">
                     <div class="row">
                     

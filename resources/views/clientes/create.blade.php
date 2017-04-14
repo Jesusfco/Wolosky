@@ -4,7 +4,7 @@
 
     
 
-            <div class="panel panel-default">
+            <div class="panel panel-default " id="principal">
                 <div class="panel-heading"><h2>Noticias >> Crear</h2></div>
                 @if(session()->has('msj'))
                     <div class="alert alert-success alert-dismissible" role="alert">

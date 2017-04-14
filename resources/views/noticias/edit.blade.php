@@ -4,7 +4,7 @@
 
     
 
-    <div class="panel panel-default">
+    <div class="panel panel-default" id="principal">
         <div class="panel-heading"><h2>Noticias >> Editar</h2></div>
         @if(session()->has('msj'))
             <div class="alert alert-success alert-dismissible" role="alert">
@@ -32,7 +32,7 @@
                   <label for="exampleInputPassword1">Resumen</label>
                   <input type="text" name="resumen" class="form-control" value='{{ $noticia->RESUMEN }}' placeholder="Escribe brevemente de que se trara la noticia" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group" >
                   <label>Imagen</label>
                   <input type="file" name="imagen"  accept="image/x-png,image/gif,image/jpeg">
                   <p class="help-block">Cargue una fotografía de la noticia</p>

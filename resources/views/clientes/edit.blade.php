@@ -4,7 +4,7 @@
 
     
 
-   <div class="panel panel-default">
+   <div class="panel panel-default" id="principal">
        
        
                 <div class="panel-heading"><h2>Cliente >> Editar</h2></div>

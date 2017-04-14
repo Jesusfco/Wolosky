@@ -13,6 +13,10 @@ use Intervention\Image\Facades\Image;
 
 class Noticias extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -68,7 +72,7 @@ class Noticias extends Controller
         $texto = $request->texto;
         $texto = rawurlencode($texto);
         $texto = rawurldecode(str_replace("%0D%0A","<br>",$texto));        
-//        echo nl2br($_POST['texto']);      Este codigo podria ser un resumen dle codigo de arriba
+
 
         $noticias = new \Wolosky\Noticia();
         $noticias->TITULO = $request->titulo;
