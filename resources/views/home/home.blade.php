@@ -30,7 +30,7 @@
                 <div class='icon-block'>  
                     <a href='noticias/{{ $n->id }}'> 
                         <img class='responsive-img' id="agrandamiento" src='images/noticias/{{ $n->IMAGEN}}'></a> 
-                    <a href='noticias/'>
+                    <a href='noticias/{{ $n->id }}'>
                     <h5 class='center tituloNoticia black-text'>"{{ $n->TITULO }}"</h5>
                     </a>
                     <blockquote class='roboto'><p style='line-height: 1rem'>"{{ $n->RESUMEN }}"</p>
