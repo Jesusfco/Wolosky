@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group">
                           <label>Imagen</label>
-                          <input type="file" name="imagen">
+                          <input type="file" name="imagen" accept="image/x-png,image/gif,image/jpeg">
                           <p class="help-block">Cargue una fotografía de la noticia</p>
                         </div>
                         

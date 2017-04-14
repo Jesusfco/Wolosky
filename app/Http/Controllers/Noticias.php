@@ -8,6 +8,8 @@ use Wolosky\Noticia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use Intervention\Image\Facades\Image;
+
 
 class Noticias extends Controller
 {
@@ -46,13 +48,18 @@ class Noticias extends Controller
             'fecha' => 'required',
             'texto' => 'required',
             'youtube' => 'required',
-            'imagen' => 'required',
+            'imagen' => 'required|image',
         ]);
         
         //Se carga la imagen a la carpeta
         $img = $request->file('imagen');
-        $file_route = time().'_'. $img->getClientOriginalName();        
-        Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
+        $file_route = time().'_'. $img->getClientOriginalName();
+
+        Image::make($request->file('imagen'))
+            ->resize(600,400)
+            ->save("images/noticias/" . $file_route);
+
+        //Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
         
         //Detectamos saltos de linea y automatizamos <br>
         $texto = $request->texto;
@@ -111,8 +118,14 @@ class Noticias extends Controller
         //Si se modigica la imagen
         if($request->file('imagen')) { 
             $img = $request->file('imagen');
-            $file_route = time().'_'. $img->getClientOriginalName();                         
-            Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
+            $file_route = time().'_'. $img->getClientOriginalName();
+
+            Image::make($request->file('imagen'))
+                    ->resize(600,400)
+                    ->save("images/noticias/" . $file_route);
+
+
+            //Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
             Storage::disk('imgNoticias')->delete($noticias->IMAGEN);
             $noticias->IMAGEN = $file_route;
             
