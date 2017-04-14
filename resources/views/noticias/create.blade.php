@@ -2,8 +2,6 @@
 
 @section('content')
 
-    
-
             <div class="panel panel-default">
                 <div class="panel-heading"><h2>Noticias >> Crear</h2></div>
                 @if(session()->has('msj'))
@@ -31,7 +29,8 @@
                         </div>
                         <div class="form-group">
                           <label>Imagen</label>
-                          <input type="file" name="imagen" accept="image/x-png,image/gif,image/jpeg" required>
+                          <input type="file" name="imagen" id="imagen" accept="image/x-png,image/gif,image/jpeg" required>
+
                           <p class="help-block">Cargue una fotografía de la noticia</p>
                         </div>
                         
@@ -59,6 +58,10 @@
                     </div>
             </div>
 
-            
+
+
+@endsection
+
+@section('scripts')
 
 @endsection

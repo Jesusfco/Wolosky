@@ -20,9 +20,10 @@ class Noticias extends Controller
      */
     public function index()
     {        
-        $noticias = DB::table('noticias')                
+        $noticias = DB::table('noticias')
                 ->orderBy('FECHA','desc')
-                ->paginate(9);
+                ->paginate(9)
+                ->withPath('noticias');
         return view('home/noticias')->with(['noticias'=> $noticias]);               
     }
 
@@ -48,7 +49,8 @@ class Noticias extends Controller
             'fecha' => 'required',
             'texto' => 'required',
             'youtube' => 'required',
-            'imagen' => 'required|image',
+            'imagen' => 'required|image'
+
         ]);
         
         //Se carga la imagen a la carpeta
@@ -56,10 +58,11 @@ class Noticias extends Controller
         $file_route = time().'_'. $img->getClientOriginalName();
 
         Image::make($request->file('imagen'))
-            ->resize(600,400)
+            ->fit(600,400)
             ->save("images/noticias/" . $file_route);
+//            ->save("../public_html/images/noticias/" . $file_route);
 
-        Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
+        //Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
         
         //Detectamos saltos de linea y automatizamos <br>
         $texto = $request->texto;
@@ -110,7 +113,7 @@ class Noticias extends Controller
             'resumen' => 'required',
             'fecha' => 'required',
             'texto' => 'required',
-            'youtube' => 'required',            
+            'youtube' => 'required',
         ]);
        
         $noticias = Noticia::find($id);
@@ -121,15 +124,13 @@ class Noticias extends Controller
             $file_route = time().'_'. $img->getClientOriginalName();
 
             Image::make($request->file('imagen'))
-                    ->resize(600,400)
-                    ->save("images/noticias/" . $file_route);
-
+                    ->fit(600,400)
+            ->save("images/noticias/" . $file_route);
+//                ->save("../public_html/images/noticias/" . $file_route);
 
             //Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
             Storage::disk('imgNoticias')->delete($noticias->IMAGEN);
             $noticias->IMAGEN = $file_route;
-            
-            
             
         } 
         

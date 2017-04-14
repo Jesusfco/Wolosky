@@ -49,7 +49,34 @@
         @endforeach
     
         <center>
-        {{ $noticias->links() }}
+
+
+            <ul class="pagination">
+                <!-- Previous Page Link -->
+                @if ($noticias->onFirstPage())
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                @else
+                    <li class="waves-effect"><a href="{{ $noticias->previousPageUrl() }}"><i class="material-icons">chevron_left</i></a></li>
+
+                @endif
+
+            <!-- Pagination Elements -->
+               @for($i=1; $i <= $noticias->lastPage(); $i++)
+                   @if($i == $noticias->currentPage())
+                        <li class="blue white-text"><a href="#!" class=" white-text">{{$i}}</a></li>
+                    @else
+                        <li class="waves-effect"><a href="{{url('noticias?page=' .  $i) }}">{{$i}}</a></li>
+                    @endif
+               @endfor
+
+            <!-- Next Page Link -->
+                @if ($noticias->hasMorePages())
+                    <li class="waves-effect"><a href="{{ $noticias->nextPageUrl() }}"><i class="material-icons">chevron_right</i></a></li>
+                @else
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                @endif
+            </ul>
+
         </center>
         @endif
     </div> 

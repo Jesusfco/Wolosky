@@ -26,11 +26,11 @@
             <form role="form" method="POST" action="{{ route('noticias.update', $noticia->id)}}" enctype="multipart/form-data">                              
                 <div class="form-group">
                   <label for="exampleInputEmail1">Titulo</label>
-                  <input type="text" name="titulo" class="form-control" value='{{ $noticia->TITULO }}' placeholder="Titulo de la noticia">
+                  <input type="text" name="titulo" class="form-control" value='{{ $noticia->TITULO }}' placeholder="Titulo de la noticia" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Resumen</label>
-                  <input type="text" name="resumen" class="form-control" value='{{ $noticia->RESUMEN }}' placeholder="Escribe brevemente de que se trara la noticia">
+                  <input type="text" name="resumen" class="form-control" value='{{ $noticia->RESUMEN }}' placeholder="Escribe brevemente de que se trara la noticia" required>
                 </div>
                 <div class="form-group">
                   <label>Imagen</label>
@@ -42,7 +42,7 @@
 
                  <div class="form-group">
                   <label>Fecha</label>
-                  <input type="date" name="fecha" class="form-control" value="{{ $noticia->FECHA }}">
+                  <input type="date" name="fecha" class="form-control" value="{{ $noticia->FECHA }}" required>
                    
                 </div>
 
