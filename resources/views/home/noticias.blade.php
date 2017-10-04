@@ -13,15 +13,18 @@
 <br><br>
 <div class="row content">
     <div class="col s12 l8"> 
+
         <a href="{{ url('noticias/'.$noticias[0]->id)}}">
-        <div class="notaPrincipal">                                
-            <div class="notaPrincipal-img divImg">
-                <img src='images/noticias/{{ $noticias[0]->IMAGEN }}' id="not1" alt="Unsplashed background img 1"  style="margin-top:0px;">
+            <div class="notaPrincipal">
+
+                <div class="notaPrincipal-img divImg">
+                    <img src='images/noticias/{{ $noticias[0]->IMAGEN }}' id="not1" alt="Unsplashed background img 1"  style="margin-top:0px;">
+                </div>
+
+                <div class="notaPrincipal-titulo">
+                    <h3 class="">{{ $noticias[0]->TITULO }}</h3>
+                </div>
             </div>
-            <div class="notaPrincipal-titulo">               
-                <h3 class="">{{ $noticias[0]->TITULO }}</h3>                                     
-            </div>             
-        </div>
         </a>
         <br>
 
@@ -82,7 +85,12 @@
     </div> 
     <div class="col m12 l4 social">
         <h5 style="margin-top: 0px;">Facebook</h5>
-        <div><iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwoloskygimnasia%2F&tabs=timeline&width=340&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1087647381316356" width="400" height="600" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe><br></div>
+        <div>
+
+            <div class="fb-page" data-href="https://www.facebook.com/GimnasiaWolosky/" data-tabs="timeline" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/GimnasiaWolosky/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/GimnasiaWolosky/">Gimnasia Artistica WOLOSKY</a></blockquote></div>
+
+            <br>
+        </div>
         <h5>Tweeter</h5>
             <a class="twitter-timeline" data-width="350" data-height="600" data-theme="dark" data-link-color="#2B7BB9" href="https://twitter.com/Rebewolosky">Tweets by Rebewolosky</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>        
     </div>
@@ -91,6 +99,14 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ url('js/noticias.js')}}"></script>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.10&appId=1775131872727466";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
 @endsection

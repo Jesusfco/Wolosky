@@ -17,10 +17,10 @@ class Noticia extends Model
     
             
     protected $fillable = [
-    'TITULO','RESUMEN', 'FECHA','TEXTO','YOUTUBE','IMAGEN',
+    'TITULO','RESUMEN', 'FECHA','TEXTO','YOUTUBE','IMAGEN','user_id'
     ];
     
-    public $timestamps = false;
+//    public $timestamps = false;
     
     public function scopeSearch($query, $name) 
     {

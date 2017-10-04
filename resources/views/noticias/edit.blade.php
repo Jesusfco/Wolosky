@@ -23,15 +23,29 @@
 
 
         <div class="panel-body">
-            <form role="form" method="POST" action="{{ url('admin/noticias', $noticia->id )}}" enctype="multipart/form-data">
+            <form role="form" method="POST" action="{{ url('admin/noticias', $noticia->id )}}" enctype="multipart/form-data" onsubmit="crearNoticia()">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+
                 <div class="form-group">
                   <label for="exampleInputEmail1">Titulo</label>
                   <input type="text" name="titulo" class="form-control" value='{{ $noticia->TITULO }}' placeholder="Titulo de la noticia" required>
                 </div>
+
                 <div class="form-group">
                   <label for="exampleInputPassword1">Resumen</label>
                   <input type="text" name="resumen" class="form-control" value='{{ $noticia->RESUMEN }}' placeholder="Escribe brevemente de que se trara la noticia" required>
                 </div>
+
                 <div class="form-group" >
                   <label>Imagen</label>
                   <input type="file" name="imagen"  accept="image/x-png,image/gif,image/jpeg">
@@ -49,12 +63,20 @@
                 </div></div>
 
                 <label>Redacta tu noticia</label>
-                    <?php
-                        $text = $noticia->TEXTO;
-                        $breaks = array("<br />","<br>","<br/>");  
-                        $text = str_ireplace($breaks, "\r\n", $text);  ?>
-                
-                <textarea class="form-control" name="texto" rows="7" required>{{ $text }}</textarea>
+
+                <textarea name="editor1" id="editor1" rows="10" cols="80">
+                    {{ $noticia->TEXTO }}
+                </textarea>
+                <input type="hidden" id="contenidoNota" name="texto">
+
+
+<!--                    --><?php
+//                        $text = $noticia->TEXTO;
+//                        $breaks = array("<br />","<br>","<br/>");
+//                        $text = str_ireplace($breaks, "\r\n", $text);  ?>
+<!--                -->
+
+
 
                 <div class="form-group">
                   <label>Iframe de Youtube</label>
@@ -74,4 +96,22 @@
 
             
 
+@endsection
+
+@section('scripts')
+    <script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        CKEDITOR.replace( 'editor1' );
+
+        function crearNoticia(){
+            var data = CKEDITOR.instances.editor1.getData();
+//            console.log(data);
+
+            $('#contenidoNota').val(data);
+//            alert('holi');
+//            return false;
+        }
+    </script>
 @endsection

@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,12 +32,12 @@ Route::post('/mensaje', 'VisitorsController@mail');
 
 Auth::routes();
 
-Route::get('admin/noticias/list', 'Noticias@index');
-Route::get('admin/noticias/create', 'Noticias@create');
-Route::post('admin/noticias/create', 'Noticias@store');
-Route::get('admin/noticias/destroy', 'Noticias@destroy');
-Route::get('noticias/{id}/edit', 'Noticias@edit');
-Route::post('admin/noticias/{id}', 'Noticias@update');
+Route::get('admin/noticias/list', 'NoticiasController@index');
+Route::get('admin/noticias/create', 'NoticiasController@create');
+Route::post('admin/noticias/create', 'NoticiasController@store');
+Route::get('admin/noticias/destroy', 'NoticiasController@destroy');
+Route::get('noticias/{id}/edit', 'NoticiasController@edit');
+Route::post('admin/noticias/{id}', 'NoticiasController@update');
 
 Route::resource('/clientes', 'Clientes');
 Route::get('/nacimiento', 'Clientes@establecerNacimiento');

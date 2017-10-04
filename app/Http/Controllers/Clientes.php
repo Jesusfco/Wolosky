@@ -229,12 +229,6 @@ class Clientes extends Controller
         }
         return back()->with(['verificado'=> true]);
     }
-    
-    public function prueba() { 
-         DB::table('prueba')->insert([
-            ['numero' => '1']
-    ]);
         
-    }
 
 }//End from controller

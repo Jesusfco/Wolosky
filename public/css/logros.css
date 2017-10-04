@@ -8,14 +8,14 @@ max-width: 1200px;
 
 .notaPrincipal{
     overflow: hidden;
-    position: inherit;    
+    position: relative;
 }
 .notaPrincipal-img {
     background-color: black;
   }
 .notaPrincipal-img img{
     width: 100%;
-    z-index: -1;
+    z-index: 1;
     overflow: hidden;
     
     -moz-transition: all 0.3s;
@@ -27,7 +27,7 @@ max-width: 1200px;
   -webkit-transform: scale(1.1) rotate(4deg);
   transform: scale(1.1) rotate(4deg);
   opacity: .6;
-  z-index: -1;
+  z-index: 1;
 }
 .notaPrincipal-titulo{    
     color: #ffffff;
@@ -37,6 +37,7 @@ max-width: 1200px;
     
     z-index: 12;
     position: absolute;
+    bottom: 0;
     
     
     -moz-transition: all 0.3s;

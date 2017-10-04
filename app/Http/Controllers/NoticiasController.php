@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 
-class Noticias extends Controller
+class NoticiasController extends Controller
 {
     public function __construct()
     {
@@ -54,7 +54,8 @@ class Noticias extends Controller
             'imagen' => 'required|image'
 
         ]);
-        
+
+        ini_set('memory_limit','256M');
         //Se carga la imagen a la carpeta
         $img = $request->file('imagen');
         $file_route = time().'_'. $img->getClientOriginalName();
@@ -62,7 +63,7 @@ class Noticias extends Controller
         Image::make($request->file('imagen'))
             ->fit(600,400)
             ->save("images/noticias/" . $file_route);
-//            ->save("../public_html/images/noticias/" . $file_route);
+//            ->save("../woloskygimnasia.com/images/noticias/" . $file_route);
 
         //Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
         
@@ -79,6 +80,8 @@ class Noticias extends Controller
         $noticias->TEXTO = $texto;
         $noticias->YOUTUBE = $request->youtube;
         $noticias->IMAGEN = $file_route;
+        $noticias->user_id = Auth::id();
+
         if($noticias->save()) { 
             return back()->with('msj', 'La noticia ha sido creada con exito');
         } else { 
@@ -122,31 +125,31 @@ class Noticias extends Controller
 
         //Si se modigica la imagen
         if($request->file('imagen')) {
+            ini_set('memory_limit','256M');
             $img = $request->file('imagen');
             $file_route = time().'_'. $img->getClientOriginalName();
 
-            Image::make($request->file('imagen'))
-                ->fit(600,400)
-                ->save("images/noticias/" . $file_route);
-//                ->save("../public_html/images/noticias/" . $file_route);
 
-            //Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
+
+            Image::make($request->file('imagen'))
+                  ->fit(600,400)
+                  ->save("images/noticias/" . $file_route);
+
+
             Storage::disk('imgNoticias')->delete($noticias->IMAGEN);
             $noticias->IMAGEN = $file_route;
 
         }
 
         //Detectamos saltos de linea y automatizamos <br>
-        $texto = $request->texto;
-        $texto = rawurlencode($texto);
-        $texto = rawurldecode(str_replace("%0D%0A","<br>",$texto));
-
-
+//        $texto = $request->texto;
+//        $texto = rawurlencode($texto);
+//        $texto = rawurldecode(str_replace("%0D%0A","<br>",$texto));
 
         $noticias->TITULO = $request->titulo;
         $noticias->RESUMEN = $request->resumen;
         $noticias->FECHA= $request->fecha;
-        $noticias->TEXTO = $texto;
+        $noticias->TEXTO = $request->texto;;
         $noticias->YOUTUBE = $request->youtube;
 
         if($noticias->save()) {

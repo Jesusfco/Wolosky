@@ -77,11 +77,12 @@
         @yield('content')
     @else
 
-        @include('layouts.menuAdmin')
+            @include('layouts.menuAdmin')
 
     <br>
-        @yield('content')
-
+        <div class="spacePadding">
+            @yield('content')
+        </div>
 
     @endif
 

@@ -23,11 +23,10 @@
     </div>
 <br>
 
-@if(isset($noticias))
-    <div class="row">
+    <div class="blogContent">
         @foreach($noticias as $n)
-            <div class='col s12 m6 l4'>
-                <div class='icon-block'>  
+            <div class='blog'>
+
                     <a href='noticias/{{ $n->id }}'> 
                         <img class='responsive-img' id="agrandamiento" src='images/noticias/{{ $n->IMAGEN}}'></a> 
                     <a href='noticias/{{ $n->id }}'>
@@ -37,11 +36,10 @@
 
                     <a href='noticias/{{ $n->id }}'   class='btn waves-effect waves-light red darken-4'>Leer más..</a>
                     </blockquote>
-                </div>
+
             </div>
         @endforeach
     </div>
-    @endif
           
     
     <div class="container row queEs blue darken-4 z-depth-4">
@@ -72,7 +70,7 @@
   
   <!-- Video section------------------------------------------------------------>
 
-    <div class="row">
+    <div class="row videoSection">
         
         <h1 class="center light slogan2" style="font-family: 'Oswald', sans-serif">Curso de Verano Wolosky</h1>
         <div class="col s12 l6 offset-l3" style="padding:0;">
@@ -112,7 +110,7 @@
     <h2 class="center light">UBICACIÓN</h2>
     <br>
     <div class="maps">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7640.8387130153105!2d-93.1219049!3d16.7557992!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x8e812b55b7fa66f5!2sWolosky+Gimnasia+Artistica!5e0!3m2!1ses!2smx!4v1465791139473" width="1200" height="400" frameborder="0" style="border:0"   allowfullscreen class="mapa" scaleControl= "false" navigationControl="false"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7640.8387130153105!2d-93.1219049!3d16.7557992!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x8e812b55b7fa66f5!2sWolosky+Gimnasia+Artistica!5e0!3m2!1ses!2smx!4v1465791139473" width="1200" height="100%" frameborder="0" style="border:0"   allowfullscreen class="mapa" scaleControl= "false" navigationControl="false"></iframe>
     </div>
     <br>
     <div class="direccion">

@@ -1,13 +1,7 @@
-$('.maps').click(function () {
-    $('.maps iframe').css("pointer-events", "auto");
-});
 
-$( ".maps" ).mouseleave(function() {
-  $('.maps iframe').css("pointer-events", "none"); 
-});
 
 //Primera redimension pantalla completa contenedor Parallax-Container
-  $("#padreParallax").css("height", $(window).height());
+//   $("#padreParallax").css("height", $(window).height());
   
   
 

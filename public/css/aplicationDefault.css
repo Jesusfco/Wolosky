@@ -6,7 +6,8 @@
     position:fixed; 
     overflow: scroll;
     z-index: 100;
-    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;    
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 230px;
 }
 ::-webkit-scrollbar-track {
       background-color: black;
@@ -94,6 +95,11 @@ body {
     display: block;    
     width: 75%;
     max-width: 1000px;
+    margin: 0 auto;
+}
+.spacePadding {
+    width: 100%;
+    padding-left: 230px;
 }
 
 #logout a { 
@@ -132,14 +138,15 @@ body {
 
 }
 
-#principal { 
-    width: -50px;
-    /*position: absolute;*/
-}
 
 @media screen and (max-width: 766px) {
     #principal { 
         width: 100%;
+    }
+
+    .spacePadding {
+
+        padding-left: 0px;
     }
     #panel { 
         left: -400px;

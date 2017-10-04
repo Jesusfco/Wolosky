@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
-.tituloNoticia { 
+#padreParallax{
+	height: 100vh;
+}
+
+.tituloNoticia {
     font-family: 'Oswald', sans-serif;
 }
 
@@ -15,6 +19,9 @@
     opacity: .8;
 }
 
+.queEs {
+	max-width: 1000px;
+}
 .queEs img  { 
     display: block;
     width: 100%;
@@ -30,18 +37,58 @@
 	color: white;
 	margin-top: 0%;
 }
-
+.videoSection{
+	max-width: 1400px;
+}
 .slogan {  
 	font-family: 'Roboto', sans-serif;
 	font-weight: lighter;
 }
+
+/*Esto es para la seccion Blog*/
+.blogContent {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: row wrap;
+}
+
+
+.blog {
+	width: 33%;
+	padding: 1%;
+}
+
+@media screen and (max-width: 1000px){
+	#padreParallax{
+		height: 50vh;
+	}
+
+	.blog {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 600px){
+	#padreParallax{
+		height: 100vh;
+	}
+
+	.blog {
+		width: 100%;
+	}
+}
+
 .row { 
 	font-family: 'Roboto', sans-serif; }
 .maps { 
  			display: block;
 	width: 100%;
 	margin: 0 auto;
-	z-index: -1;; 
+	height: 50vh;
  }
 
 
@@ -49,7 +96,7 @@
 	display: block;
 	width: 100%;
 	margin: 0 auto;
-	z-index: -1;
+
 	 }
 
 .direccion p{
@@ -71,8 +118,9 @@
 
 #logo1 { 
     display: block;
-    margin: 0 auto;
+    margin: 100px auto;
     width: 40%;
+	max-width: 500px;
 }
 @media screen and (max-width: 880px)  { 
 	.portada1 {  
@@ -84,18 +132,12 @@
 		font-size: 200%;
 		
 	}
-		.mapa { 
- 			height: 500px; 
- 	}
+
 }
 
  @media screen and (max-width: 480px) { 
 
- 	.mapa { 
- 		height: 300px; 
- 	}
- 	
- 	.portada1 {  
+ 	.portada1 {
 
 		font-size:400%; 
 	}
@@ -114,6 +156,7 @@
         }
         #logo1 {             
             width: 70%;
+			margin: 20px auto;
         }
 
  }

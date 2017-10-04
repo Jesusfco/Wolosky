@@ -15,7 +15,7 @@
                         
                     <form method="GET" class="navbar-form">
                          <div class="input-group">
-                            <input name="name" class="form-control" placeholder="Buscar Noticia">
+                            <input name="name" class="form-control" placeholder="Buscar Noticia" autofocus>
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">Buscar</button>
                             </span>

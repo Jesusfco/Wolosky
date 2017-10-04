@@ -2,6 +2,7 @@
     display: block;
     z-index: -10;
     width:  100%;
+	height: 80vh;
     position: fixed;
     
         
@@ -69,8 +70,17 @@
 .display2 { 
     display: none;
 }
+@media screen and (max-width: 1000px) {
+	#fondoquienes {
+		height: auto;
+	}
+	#fondoquienes img{
+		position: static;
+	}
+}
 
-@media screen and (max-width: 600px) { 
+@media screen and (max-width: 600px) {
+
 
  		.chico {  
  			display: block;
