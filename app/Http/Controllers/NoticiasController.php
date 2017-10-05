@@ -68,16 +68,16 @@ class NoticiasController extends Controller
         //Storage::disk('imgNoticias')->put($file_route, file_get_contents($img->getRealPath()));
         
         //Detectamos saltos de linea y automatizamos <br>
-        $texto = $request->texto;
-        $texto = rawurlencode($texto);
-        $texto = rawurldecode(str_replace("%0D%0A","<br>",$texto));        
+//        $texto = $request->texto;
+//        $texto = rawurlencode($texto);
+//        $texto = rawurldecode(str_replace("%0D%0A","<br>",$texto));
 
 
         $noticias = new \Wolosky\Noticia();
         $noticias->TITULO = $request->titulo;
         $noticias->RESUMEN = $request->resumen;
         $noticias->FECHA= $request->fecha;
-        $noticias->TEXTO = $texto;
+        $noticias->TEXTO = $request->texto;
         $noticias->YOUTUBE = $request->youtube;
         $noticias->IMAGEN = $file_route;
         $noticias->user_id = Auth::id();
